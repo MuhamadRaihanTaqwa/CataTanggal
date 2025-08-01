@@ -1,0 +1,13 @@
+<?php
+include '../config/koneksi.php';
+session_start();
+
+$pengirim = $_SESSION['username'];
+$penerima = $_POST['penerima'];
+$id_jadwal = $_POST['id_jadwal'];
+
+$sql = "INSERT INTO undangan (id_jadwal, pengirim, penerima) VALUES ('$id_jadwal', '$pengirim', '$penerima')";
+mysqli_query($conn, $sql);
+
+header('Location: ../dashboard.php');
+?>
